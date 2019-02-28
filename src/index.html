@@ -8,13 +8,13 @@
   <body>
     <div id="root">
       <header class="header">
-       <a href="" class="logo">Título</a>
-       <input class="menu-btn" type="checkbox" id="menu-btn" />
-       <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
-       <ul class="menu">
-         <li><a href="#">¿Quiénes Somos?</a></li>
-         <li id="btn-data"><a href="#">Entendiendo la Violencia</a></li>
-       </ul>
+         <a href="" class="logo">Título</a>
+         <input class="menu-btn" type="checkbox" id="menu-btn" />
+         <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+         <ul class="menu">
+           <li><a href="#">¿Quiénes Somos?</a></li>
+           <li id="btn-data"><a href="#">Entendiendo la Violencia</a></li>
+         </ul>
      </header>
 
      <section id="entendiendo-violencia">
@@ -31,17 +31,59 @@
      <section id="section-flags">
       <h2>Por País</h2>
        <div id="flags">
-       <img src="https://cdn.pixabay.com/photo/2017/01/31/17/01/banner-2025567_960_720.png" id="mexico">
-       <img src="https://cdn.pixabay.com/photo/2017/01/31/15/04/banner-2024865_960_720.png" id="peru">
-       <img src="https://cdn.pixabay.com/photo/2017/01/31/14/49/banner-2024732_960_720.png" id="chile">
-       <img src="https://cdn.pixabay.com/photo/2017/01/31/16/44/banner-2025436_960_720.png" id="brasil">
+       <img data-country="MEX" src="https://cdn.pixabay.com/photo/2017/01/31/17/01/banner-2025567_960_720.png" id="mexico">
+       <img data-country="PER" src="https://cdn.pixabay.com/photo/2017/01/31/15/04/banner-2024865_960_720.png" id="peru">
+       <img data-country="CHL" src="https://cdn.pixabay.com/photo/2017/01/31/14/49/banner-2024732_960_720.png" id="chile">
+       <img data-country="BRA" src="https://cdn.pixabay.com/photo/2017/01/31/16/44/banner-2025436_960_720.png" id="brasil">
        </div>
      </section>
 
      <section id="section-indicator">
        <h3>Indicadores</h3>
+       <ul>
+         <li><a id="perception-cultural" href="#">Percepción Cultural</a></li>
+         <li><a id="literacy" href="#">Alfabetización</a></li>
+         <li><a id="unemployment" href="#">Desempleo</a></li>
+       </ul>
+     </section>
+
+     <section id="section-country">
+       <h4 id="title-country"></h4>
+       <div id="country-name">
+
+       </div>
+     </section>
+
+     <section id="indicator-country">
+       <h5 id="title-indicator"></h5>
+       <div id="indicator-table-country">
+         <select >
+          <option id="mayor a menor">Odenar de mayor a menor</option>
+          <option id="menor a mayor">Ordenar de menor a mayor</option>
+         </select>
+       </div>
+     </section>
+
+     <section id="categories">
+       <div id="section-categories">
+
+       </div>
+      </section>
+
+     <section id="indicator-countries">
+       <select id="select">
+        <option value="volvo">2006</option>
+        <option value="saab">Saab</option>
+        <option value="opel">Opel</option>
+        <option value="audi">Audi</option>
+      </select>
+
+      <div id="table-years">
+
+      </div>
 
      </section>
+
 
     </div>
     <script src="./data/worldbank/worldbank.js"></script>
