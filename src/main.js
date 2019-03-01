@@ -197,13 +197,64 @@ function linkIndicatorsAllContries() {
   const codeIndicator = event.srcElement.dataset.code;
   // filterIndicatorCategory(indicatorsLiteracy, 'SE.TER.CUAT.MS.FE.ZS');
   const contries = indicatorTableCountry(codeIndicator);
-  start(contries)
-  const data = indicatorTableData(codeIndicator)
-  console.log(data);
-  // console.log(filterYearAllContries("1980"));
+  // const pruebacodigo = "SP.M18.2024.FE.ZS";
+  // console.log(indicatorTableCountry(pruebacodigo))
+
+
+  const data = indicatorTableData(codeIndicator);
+  const selectYears  = document.getElementById('Select1').addEventListener('click', select);
+  const dataYears = filterYearAllContries(selectYears,data);
+  //console.log(dataYears)
+  start(contries,dataYears);
+  const dataSum = forSum(dataYears);
+  const dataAverages = averages(dataSum);
+  //console.log(dataAverages);
+  const rangeYears=range(1960,2017);
+  selectYear(rangeYears);
+
+
 }
 
-function start(codigo) {
+//Obtiene el valor de ano seleccionado
+
+ function select(){
+  value = event.target.value; //El valor seleccionado
+  return value;
+};
+
+
+//Crea un array dando un numero minimo y un maximo
+function range(min, max) {
+  let ran=[];
+  for(let i=min; i<=max; i++){
+    ran = ran.concat(i)
+}
+  return ran;
+};
+
+//crea un select dado un arreglo de valores determinado
+function selectYear(rangeYears){
+let sel = document.createElement('select');
+sel.name = 'drop1';
+sel.id = 'Select1';
+
+let options_num = "";
+
+rangeYears.forEach( function(year) {
+  options_num += '<option value="' + year + '">' + year + '</option>';
+});
+sel.innerHTML = options_num;
+  document.body.appendChild(sel);
+};
+
+//Obtener el valor seleccionado en select
+
+
+
+
+
+//Crea una tabla dado un ano seleccionado y su lista de informacion
+function start(codigo,porcentaje) {
                // get the reference for the body
                const mybody = document.getElementById("table-years");
 
@@ -222,14 +273,10 @@ function start(codigo) {
 
              table.appendChild(header);
 
-           //console.log(auxiliar)
-
                // creating all cells
                for(var j = 0; j < 4; j++) {
                 let year = codigo[j];
-                   //var percent = Object.values(data)[j];
-                   //year = 5;
-                  var percent = 2;
+                let percent = porcentaje[j];
                  // creates a <tr> element
                    mycurrent_row = document.createElement("tr");
 
@@ -255,13 +302,26 @@ function start(codigo) {
                    tablebody.appendChild(mycurrent_row);
                }
 
+               const footer = document.createElement("tr");
+
+               const cellAverage = document.createElement("th");
+               const average = document.createElement("th");
+
+               footer.appendChild(cellAverage);
+               footer.appendChild(average);
+
+               tablebody.appendChild(footer);
 
                        years = document.createTextNode("Anos");
                        percents = document.createTextNode("Porcentaje %");
 
                        cellYears.appendChild(years);
                        cellPercent.appendChild(percents);
+                       yearsAverage = document.createTextNode("Promedio");
+                       percentsAverage = document.createTextNode(averages(forSum(porcentaje)));
 
+                       cellAverage.appendChild(yearsAverage);
+                       average.appendChild(percentsAverage);
 
                // appends <tbody> into <table>
                table.appendChild(tablebody);

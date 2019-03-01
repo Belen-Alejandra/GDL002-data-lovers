@@ -154,14 +154,28 @@ indicatorTableData = (code) => {
    return fullData;
   };
 
-
-
-//   function filterYearAllContries(year) {
-//     const years = indicatorTableData('SG.VAW.REFU.ZS');
-//     const arr = Object.values(years)
-//     console.log(arr.filter(word => word.0.3)));
-//
-//   }
-// //arr.filter(word => word.2006)
-// // mapyears = element.map(x => x.year);
-//   console.log(filterYearAllContries(2006));
+//REGRESA LOS VALORES DE LOS 4 PAISES PARA EL ANO SELECCIONADO
+  function filterYearAllContries(year,data) {
+    let mapYears = [];
+    data.forEach(function(e) {
+      mapYears.push(e[year]);
+    })
+    return mapYears;
+  };
+//Elimina espacios vacios en un arreglo para poder sumar, devuelve un arreglo sin espacios nulos
+  function forSum(array){
+    numSum = array.filter(num => num >=0.0001)
+    return numSum;
+  };
+//suma los elementos de un arreglo
+averages = (numbers) => {
+let sum = 0;
+total = numbers.length;
+numbers.forEach(function(item) {
+  //if(item == ""){
+  //  item == 0;
+//  }
+  sum += item;
+})
+return sum/total;
+};
