@@ -6,6 +6,7 @@ let sectionCountry = document.getElementById('section-country');
 let sectionIndicatorCountry = document.getElementById('indicator-country');
 const sectionCategories = document.getElementById('categories');
 const sectionIndicatorCountries = document.getElementById('indicator-countries');
+//const sectionHome= document.getElementsById('home');
 
 
 function display (elements, display = 'inline-block') {
@@ -42,7 +43,8 @@ function buttonFlagMexico() {
   display([sectionTwo, sectionFlags, sectionIndicator,sectionCategories], "none");
   display([sectionCountry]);
   country = document.getElementById("mexico").dataset.country
-  let result = filterCountry(country)
+ const result = filterCountry(country);
+
   const countryNameElement = document.getElementById('country-name');
   showIndicatorNames(result, countryNameElement)
   document.getElementById('title-country').innerHTML = 'Mexico';
@@ -192,35 +194,30 @@ function linkUnemployment() {
 function linkIndicatorsAllContries() {
   display([sectionTwo, sectionFlags, sectionIndicator, sectionCountry, sectionCategories], "none");
   display([sectionIndicatorCountries]);
-  // console.log(filterIndicatorCategory(event.srcElement.dataset.code));
-  //console.log(event);
+  //toma el codigo del indicador
   const codeIndicator = event.srcElement.dataset.code;
-  // filterIndicatorCategory(indicatorsLiteracy, 'SE.TER.CUAT.MS.FE.ZS');
-  const contries = indicatorTableCountry(codeIndicator);
-  // const pruebacodigo = "SP.M18.2024.FE.ZS";
-  // console.log(indicatorTableCountry(pruebacodigo))
-
-
-  const data = indicatorTableData(codeIndicator);
-  const selectYears  = document.getElementById('Select1').addEventListener('click', select);
-  const dataYears = filterYearAllContries(selectYears,data);
-  //console.log(dataYears)
-  start(contries,dataYears);
-  const dataSum = forSum(dataYears);
-  const dataAverages = averages(dataSum);
-  //console.log(dataAverages);
-  const rangeYears=range(1960,2017);
-  selectYear(rangeYears);
-
-
+  // muestra el nombre del indicador en pantaalla
+  name = document.getElementById('title-indicator-grap').innerHTML = event.target.innerText;
+  const rangeYears = range(1960,2017);  //crea un arrglo con un min y un max
+  selectYear(rangeYears); //crea un select con el rango dado
 }
 
-//Obtiene el valor de ano seleccionado
+document.getElementById('show-table').addEventListener('click', capturarValor);
+   function capturarValor(){
+     //console.log(linkIndicatorsAllContries())
+     const yearValue= document.getElementById("Select1").value;
+    const codeIndicator = "SL.UEM.INTM.FE.ZS";
+      //const codeIndicator = linkIndicatorsAllContries();
 
- function select(){
-  value = event.target.value; //El valor seleccionado
-  return value;
-};
+    //nos da un array con los paises para dicho indicador
+    const contries = indicatorTableCountry(codeIndicator);
+      //da un arreglo con los datos de cada pais para el indicador
+    const data = indicatorTableData(codeIndicator);
+    const dataYears = filterYearAllContries(yearValue,data);//regresa un arreglo con la informacion para el ano seleccionado
+    tableYear(contries,dataYears);  //crea la tabla
+    const dataSum = forSum(dataYears); //toma los valores y checa espacios vacios y los quita
+    const dataAverages = averages(dataSum); //da el promedio
+}
 
 
 //Crea un array dando un numero minimo y un maximo
@@ -234,6 +231,7 @@ function range(min, max) {
 
 //crea un select dado un arreglo de valores determinado
 function selectYear(rangeYears){
+const select = document.getElementById("select1");
 let sel = document.createElement('select');
 sel.name = 'drop1';
 sel.id = 'Select1';
@@ -244,17 +242,14 @@ rangeYears.forEach( function(year) {
   options_num += '<option value="' + year + '">' + year + '</option>';
 });
 sel.innerHTML = options_num;
-  document.body.appendChild(sel);
+  //document.body.appendChild(sel);
+  select1.appendChild(sel);
 };
-
-//Obtener el valor seleccionado en select
-
-
 
 
 
 //Crea una tabla dado un ano seleccionado y su lista de informacion
-function start(codigo,porcentaje) {
+function tableYear(contries,porcentaje) {
                // get the reference for the body
                const mybody = document.getElementById("table-years");
 
@@ -275,12 +270,10 @@ function start(codigo,porcentaje) {
 
                // creating all cells
                for(var j = 0; j < 4; j++) {
-                let year = codigo[j];
+                let countriesName = contries[j];
                 let percent = porcentaje[j];
                  // creates a <tr> element
                    mycurrent_row = document.createElement("tr");
-
-
                        // creates a <td> element's
                        year_cell = document.createElement("td");
                        percent_cell = document.createElement("td");
@@ -289,7 +282,7 @@ function start(codigo,porcentaje) {
                    } else {
                      currenttext2 = document.createTextNode(percent);
                    }
-                       currenttext = document.createTextNode(year);
+                       currenttext = document.createTextNode(countriesName);
                        // appends the Text Node we created into the cell <td>
                        year_cell.appendChild(currenttext);
                        percent_cell.appendChild(currenttext2);
@@ -312,7 +305,7 @@ function start(codigo,porcentaje) {
 
                tablebody.appendChild(footer);
 
-                       years = document.createTextNode("Anos");
+                       years = document.createTextNode("País");
                        percents = document.createTextNode("Porcentaje %");
 
                        cellYears.appendChild(years);
@@ -328,7 +321,8 @@ function start(codigo,porcentaje) {
                // appends <table> into <body>
                mybody.appendChild(table);
                // sets the border attribute of mytable to 2;
-               table.setAttribute("border","2");
+               table.setAttribute("border","10");
+               //table.setAttribute("align","center");
              }
 
 //iterar elementos por clase para los eventos click

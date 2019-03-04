@@ -1,3 +1,5 @@
+
+
 const indicatorsPerceptionCult = [
   { indicatorCode: "SG.VAW.REFU.ZS",
   indicatorName: "Mujeres que creen que está justificado que un marido golpee a su esposa cuando ella se niega a tener relaciones sexuales (%)" },
@@ -52,7 +54,9 @@ function filterCountry(country) {
     return isIn !== -1
   })
   return indicatorsCountry
+
 }
+
 
 
 function showIndicatorNames(indicators, parentElement) {

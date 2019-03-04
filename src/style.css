@@ -141,7 +141,70 @@ a {
   }
 }
 
+#indicator-countries  {
+  text-align: center;
+}
 
+#title-indicator-grap {
+  text-align: center;
+  margin-top: 100px;
+  color: blue;
+  padding-bottom: 50px;
+  padding-left: 500px;
+}
+h5 {
+  text-align: center;
+}
+
+.show-table {
+ background-color: #191970;
+ border: 1px solid white;
+ color: white;
+
+ text-align: center;
+
+ display: inline-block;
+ font-size: 20px;
+ margin: 25px 2px;
+ cursor: pointer;
+ border-radius: 5px;
+ font-family: Helvetica;
+}
+.show-table:hover {
+ background-color: white;;
+ color: #000000;
+ font-size: 20px;
+ border-radius: 5px;
+ text-align: center;
+}
+
+
+
+
+div.show-grap {
+  width: 300px;
+  padding: 100px;
+  box-sizing: border-box;
+  text-align: center;
+  padding-left: 600px;
+}
+}
+div.select1  {
+  width: 300px;
+  padding: 200px;
+  box-sizing: border-box;
+  text-align: center;
+  padding-left: 800px;
+}
+
+#table-years {
+  margin-top: 100px;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+ font-size: 14px;
+  margin: 45px;
+   width: 480px; text-align: left;
+   text-align: center;
+ }
 
 /*Sección Entendiendo la violencia*/
 
