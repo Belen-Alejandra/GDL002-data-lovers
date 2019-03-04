@@ -1,14 +1,29 @@
 body {
-  display: flex;
   margin: 0;
-  font-family: Helvetica, sans-serif;
-  background-color: #f4f4f4;
+  font-family: "Open Sans", sans-serif;
+  background-color: white;
 }
 
-
-a {
-  color: #000;
+section, #perception-cultural, #literacy, #unemployment {
+  color: #0f4867;
 }
+
+#home, #section-indicator, #section-flags, #indicator-country, #categories {
+  display: flex;
+  justify-content: center;
+}
+
+header a img{
+  height: 50px;
+  width: 130px;
+}
+
+#home img {
+  margin-top: 70px;
+  min-width: 90%;
+  height: 555px;
+}
+
 
 /* header */
 
@@ -33,6 +48,8 @@ a {
   padding: 20px 20px;
   border-right: 1px solid #f4f4f4;
   text-decoration: none;
+  color: #166c9a;
+  font-weight: bold;
 }
 
 .header li a:hover,
@@ -43,9 +60,7 @@ a {
 .header .logo {
   display: block;
   float: left;
-  font-size: 2em;
   padding: 10px 20px;
-  text-decoration: none;
 }
 
 /* menu */
@@ -68,7 +83,7 @@ a {
 }
 
 .header .menu-icon .navicon {
-  background: #333;
+  background: #166c9a;
   display: block;
   height: 2px;
   position: relative;
@@ -78,7 +93,7 @@ a {
 
 .header .menu-icon .navicon:before,
 .header .menu-icon .navicon:after {
-  background: #333;
+  background: #166c9a;
   content: '';
   display: block;
   height: 100%;
@@ -209,51 +224,78 @@ div.select1  {
 /*Sección Entendiendo la violencia*/
 
 #entendiendo-violencia {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: 10%;
+  margin: 100px;
+  text-align: justify;
+}
+
+#entendiendo-violencia h1 {
+  text-align: center;
 }
 
 .options-buttons {
   display: flex;
   justify-content: center;
   flex-flow: row wrap;
+  margin-top: 50px;
 }
 
 button {
-  height: 30px;
-  width: 100px;
+  height: 50px;
+  width: 110px;
   padding: 5px;
   margin: 10px 30px;
+  border-radius: 15px;
+  background-color: #166c9a;
+  color: white;
+  font-weight: 600;
 }
 
-#flags {
-  display: flex;
+#section-flags {
   justify-content: center;
-  flex-flow: row wrap;
 }
+
+#flags{
+  flex-flow: row wrap;
+  margin-top: 100px;
+}
+
+
 
 #mexico, #peru, #chile, #brasil{
-  display: flex;
-  justify-items: center;
-  flex-flow: row wrap;
   height: 280px;
   width: 390px;
 }
 
-#section-indicator{
-  font-size: 40px;
-  margin-top: 20px;
+
+#indicators{
   display: flex;
+  justify-content: center;
+  flex-flow: column wrap;
+  font-size: 40px;
+  margin-top: 50px;
+  margin-left: 50px;
 }
+
 
 #title-country{
   margin-top: 100px;
 }
 
-#section-country div {
-  margin-top: 50px;
+#section-country{
+  flex-flow: wrap;
+  margin-left: 30px;
+}
+
+#indicator-country, #indicator-contries {
+  flex-flow: column wrap;
+  align-items: center;
+
+}
+
+
+#categories{
+  flex-flow: column wrap;
+  align-items: flex-start;
 }
 
 a:link{
@@ -265,8 +307,17 @@ a:link{
 }
 
 #section-categories {
-  margin-top: 100px;
+  margin-top: 130px;
 }
+
+#categories p {
+  margin-left: 30px;
+}
+
+#categories a {
+  color: #0f4867;
+}
+
 
 #select {
   margin-top: 100px;

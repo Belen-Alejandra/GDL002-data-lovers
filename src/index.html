@@ -4,52 +4,68 @@
     <meta charset="utf-8">
     <title>Data Lovers</title>
     <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
   </head>
   <body>
     <div id="root">
       <header class="header">
-         <a href="" class="logo">Título</a>
+         <a href="" class="logo"><img src="Imagen3.png"> </a>
          <input class="menu-btn" type="checkbox" id="menu-btn" />
          <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
          <ul class="menu">
-           <li><a href="#">¿Quiénes Somos?</a></li>
+           <li id="link-info"><a href="#">¿Quiénes Somos?</a></li>
            <li id="btn-data"><a href="#">Entendiendo la Violencia</a></li>
          </ul>
      </header>
 
+<<<<<<< HEAD
     <!-- /*<section id="home">
      <div class="hero-image">
     <div> Entidad para la igualdad y el empoderamiento de la mujer </div>
       </div>
       </section> -->
+=======
+     <section id="home">
+        <!-- <img src="https://cdn-images-1.medium.com/max/750/1*dKmwPJxXWSRuvP_RSKShhw.jpeg"> -->
+        <img src="background.png" >
+     </section>
+
+     <section id="who-are-we">
+
+     </section>
+
+>>>>>>> 8c349f674c9e5d8288bb3f775da0fd4b6f575a76
      <section id="entendiendo-violencia">
-      <div>
        <h1>Entendiendo la Violencia</h1>
-       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+       <p>Hay que enfrentar grandes desafíos para ayudar a las mujeres que más sufren violencia en Latinoamérica. Los datos y las investigaciones sirven para establecer prioridades, intercambiar conocimientos acerca de las medidas que funcionan y medir los avances.</p>
        <div class="options-buttons">
         <button id="btn-country">Por País</button>
         <button id="btn-indicator">Por Indicador</button>
        </div>
-       </div>
      </section>
 
      <section id="section-flags">
-      <h2>Por País</h2>
        <div id="flags">
-       <img data-country="MEX" src="https://cdn.pixabay.com/photo/2017/01/31/17/01/banner-2025567_960_720.png" id="mexico">
-       <img data-country="PER" src="https://cdn.pixabay.com/photo/2017/01/31/15/04/banner-2024865_960_720.png" id="peru">
-       <img data-country="CHL" src="https://cdn.pixabay.com/photo/2017/01/31/14/49/banner-2024732_960_720.png" id="chile">
-       <img data-country="BRA" src="https://cdn.pixabay.com/photo/2017/01/31/16/44/banner-2025436_960_720.png" id="brasil">
-       </div>
+         <div>
+           <img data-country="MEX" src="https://cdn.pixabay.com/photo/2017/01/31/17/01/banner-2025567_960_720.png" id="mexico" title="México">
+           <img data-country="PER" src="https://cdn.pixabay.com/photo/2017/01/31/15/04/banner-2024865_960_720.png" id="peru" title="Perú">
+         </div>
+         <div>
+           <img data-country="CHL" src="https://cdn.pixabay.com/photo/2017/01/31/14/49/banner-2024732_960_720.png" id="chile" title="Chile">
+           <img data-country="BRA" src="https://cdn.pixabay.com/photo/2017/01/31/16/44/banner-2025436_960_720.png" id="brasil" title="Brasil">
+         </div>
+        </div>
      </section>
 
      <section id="section-indicator">
-       <h3>Indicadores</h3>
-       <ul>
-         <li><a id="perception-cultural" href="#">Percepción Cultural</a></li>
-         <li><a id="literacy" href="#">Alfabetización</a></li>
-         <li><a id="unemployment" href="#">Desempleo</a></li>
-       </ul>
+       <div id="indicators">
+         <h3>Indicadores</h3>
+         <ul>
+           <li><a id="perception-cultural" href="#">Percepción Cultural</a></li>
+           <li><a id="literacy" href="#">Alfabetización</a></li>
+           <li><a id="unemployment" href="#">Desempleo</a></li>
+         </ul>
+       </div>
      </section>
 
      <section id="section-country">
@@ -62,16 +78,17 @@
      <section id="indicator-country">
        <h5 id="title-indicator"></h5>
        <div id="indicator-table-country">
-         <select >
-          <option id="mayor a menor">Odenar de mayor a menor</option>
-          <option id="menor a mayor">Ordenar de menor a mayor</option>
+         <select id="example" >
+          <option selected disabled>Ordenar Porcentaje</option>
+          <option value="descendant" id="descendant">Odenar de mayor a menor</option>
+          <option value="ascendant" id="ascendant">Ordenar de menor a mayor</option>
          </select>
        </div>
      </section>
 
      <section id="categories">
        <div id="section-categories">
-
+         <p>Indicadores:</p>
        </div>
       </section>
 
@@ -93,8 +110,15 @@
 
       <div class="table-years" id="table-years">
 
+      <div class="show-grap" id="show-grap">
+       <button type="button" id="show-table">Graficar!</button>
       </div>
 
+
+
+      <div class="table-years" id="table-years">
+
+      </div>
      </section>
 
 
